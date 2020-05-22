@@ -1,6 +1,6 @@
 import googleapiclient.discovery
 
-my_api_key = 'your key'
+my_api_key = 'YOUR KEY'
 api_service_name = 'youtube'
 api_version = 'v3'
 
