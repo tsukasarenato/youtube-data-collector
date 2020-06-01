@@ -3,7 +3,7 @@ import googleapiclient.discovery
 
 def collect_comments(video_id, page_token):
 
-    my_api_key = 'AIzaSyDF3vOONfedg_dvhyue1QsvUtDFMsF3gb0'
+    my_api_key = 'your key'
     api_service_name = "youtube"
     api_version = "v3"
 
