@@ -2,6 +2,13 @@ import googleapiclient.discovery
 
 
 def collect_comments(video_id, page_token):
+    """
+    This function list comments of a youtube video
+
+    :param video_id: id of the youtube video, after ?v= -> youtube.com/watch?v=video_id
+    :param page_token:
+    :return: return 100 comments
+    """
 
     my_api_key = 'your key'
     api_service_name = "youtube"
@@ -24,6 +31,13 @@ def collect_comments(video_id, page_token):
 
 
 def write_json_file(comments, name):
+    """
+    This function saves comments in a txt file
+
+    :param comments: collected comments
+    :param name: name for the txt file
+    :return: a txt file
+    """
 
     text = ''
 
