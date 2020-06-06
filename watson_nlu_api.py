@@ -5,7 +5,8 @@ from ibm_watson.natural_language_understanding_v1 import Features, EntitiesOptio
     ConceptsOptions
 
 
-def watson_request(text):
+def watson_nlu(text):
+
     authenticator = IAMAuthenticator('your key')
 
     natural_language_understanding = NaturalLanguageUnderstandingV1(
@@ -29,30 +30,11 @@ def watson_request(text):
     return json_string
 
 
-file = ''
-Writefile = ''
+text_example = 'Bacharel em computação pelo Centro Universitário Eurípides de Marília (UNIVEM). Minha experiência na ' \
+               'área é com desenvolvimento de projetos, meu primeiro projeto foi para a área de turismo de Marília, ' \
+               'o meu segundo foi automação de testes em jogos eletrônicos, no terceiro desenvolvi uma interface de ' \
+               'usuário para os bombeiros do DF, e o meu ultimo foi mineração de dados em midias sociais e jornais ' \
+               'eletrônicos. Criei este site para compartilhar um pouco do meu conhecimento e do que venho ' \
+               'desenvolvendo nos tempos livres. '
 
-f = open(file, encoding="utf8")
-
-line = f.readline()
-number_comment = 0
-texts = ''
-write_text = ''
-while line != '##endFile':
-    line = f.readline()
-    if str(line) != '\n':
-        texts += str(line)
-        number_comment += 1
-
-    if number_comment > 200 and texts != '':
-        write_text += str(watson_request(texts).decode('utf8')) + '\n'
-        print(write_text)
-        number_comment = 0
-        texts = ''
-
-if texts != '':
-    write_text += str(watson_request(texts)) + '\n'
-
-file = open(Writefile, 'w', encoding="utf8")
-file.write(write_text)
-file.close()
+print(watson_nlu(text_example))
